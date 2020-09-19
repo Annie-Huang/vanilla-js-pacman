@@ -5,4 +5,5 @@ https://github.com/Annie-Huang/vanilla-js-pacman
 
 =============================================================
 
-
+C:\react\vanilla-js-pacman>npm start
+http://localhost:1234/
