@@ -13,5 +13,27 @@ class GameBoard {
     div.innerHTML = `${gameWin ? 'WIN!' : 'GAME OVER!'}`;
     this.DOMGrid.appendChild(div);
   }
+
+  createGrid(level) {
+    this.dotCount = 0;
+    this.grid = [];
+    this.DOMGrid.innerHTML = '';
+    this.DOMGrid.style.cssText = `grid-template-columns: repeat(${GRID_SIZE}, ${CELL_SIZE}px);`;
+
+    level.forEach(square => {
+      const div = document.createElement('div');
+
+      // Add multiple class.
+      // e.g. when square=20, CLASS_LIST[Leve[20]]= CLASS_LIST[1] = OBJECT_TYPE.WALL = 'wall'. so it becomes
+      // div.classList.add('square', 'wall');
+      div.classList.add('square', CLASS_LIST[square]);
+
+      div.style.cssText = `width: ${CELL_SIZE}px; height: ${CELL_SIZE}px;`;
+      this.DOMGrid.appendChild(div);
+      this.grid.push(div);
+
+      if(CLASS_LIST[square] === OBJECT_TYPE.DOT) this.dotCount++;
+    })
+  }
 }
 
