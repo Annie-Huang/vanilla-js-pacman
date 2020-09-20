@@ -33,18 +33,19 @@ class GameBoard {
       this.grid.push(div);
 
       if(CLASS_LIST[square] === OBJECT_TYPE.DOT) this.dotCount++;
-    })
+    });
   }
 
   addObject(pos, classes) {
-    this.grid[pos].classList.add(...classes)
+    this.grid[pos].classList.add(...classes);
   }
 
   removeObject(pos, classes) {
-    this.grid[pos].classList.remove(...classes)
+    this.grid[pos].classList.remove(...classes);
   }
 
-  objectExist = (pos, object) => {
+  // objectExist = (pos, object) => {
+  objectExist(pos, object) {
     return this.grid[pos].classList.contains(object);
   }
 
@@ -55,8 +56,8 @@ class GameBoard {
   // Use for both the pacman and the ghost
   moveCharacter(character) {
     if (character.shouldMove()) {
-      // const {nextMovePos, direction} = character.getNextMove(this.objectExist.bind(this));
-      const {nextMovePos, direction} = character.getNextMove(this.objectExist);
+      const {nextMovePos, direction} = character.getNextMove(this.objectExist.bind(this));
+      // const {nextMovePos, direction} = character.getNextMove(this.objectExist);
       const {classesToRemove, classesToAdd} = character.makeMove();
 
       if(character.rotation && nextMovePos !== character.pos) {

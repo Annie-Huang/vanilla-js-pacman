@@ -12,7 +12,7 @@ class Pacman {
 
   // Both Pacman and Ghost have this method.
   shouldMove() {
-    if(!this.dir) return false;
+    if(!this.dir) return;
 
     if(this.timer === this.speed) {
       this.timer = 0;
@@ -33,15 +33,15 @@ class Pacman {
 
   makeMove() {
     const classesToRemove = [OBJECT_TYPE.PACMAN];
-    const classToAdd = [OBJECT_TYPE.PACMAN];
-    return {classesToRemove, classToAdd};
+    const classesToAdd = [OBJECT_TYPE.PACMAN];
+    return {classesToRemove, classesToAdd};
   }
 
   setNewPos(nextMovePos) {
     this.pos = nextMovePos;
   }
 
-  handlekeyInput(e, objectExist) {
+  handleKeyInput(e, objectExist) {
     // console.log(e);
     let dir;
 
