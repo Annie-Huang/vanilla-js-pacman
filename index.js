@@ -9,8 +9,8 @@ const scoreTable = document.querySelector('#score');
 const startButton = document.querySelector('#start-button');
 
 // Game Constants
-const POWER_PILL_TIME = 10000; //ms
-const GLOBAL_SPEED = 80; //ms
+const POWER_PILL_TIME = 10000; // ms
+const GLOBAL_SPEED = 80; // ms
 const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL);
 
 // Initial Setup
@@ -27,7 +27,8 @@ function gameOver(pacman, grid) {
 function checkCollision(pacman, ghosts) {}
 
 function gameLoop(pacman, ghosts) {
-  console.log('works!');
+  // console.log('works!');
+  gameBoard.moveCharacter(pacman);
 }
 
 function startGame() {
@@ -44,7 +45,7 @@ function startGame() {
   document.addEventListener('keydown', e => {
     // If you don't have the => method in objectExist, you will need to bind it like this below:
     // pacman.handlekeyInput(e, gameBoard.objectExist.bind(gameBoard));
-    pacman.handlekeyInput(e, gameBoard.objectExist)
+    pacman.handlekeyInput(e, gameBoard.objectExist);
   });
 
   timer = setInterval(() => gameLoop(pacman), GLOBAL_SPEED);
