@@ -10,6 +10,7 @@ class Pacman {
     this.rotation = true;
   }
 
+  // Both Pacman and Ghost have this method.
   shouldMove() {
     if(!this.dir) return false;
 
@@ -41,10 +42,10 @@ class Pacman {
   }
 
   handlekeyInput(e, objectExist) {
-    console.log(e);
+    // console.log(e);
     let dir;
 
-    // left, up, right, down
+    // e.key will be ArrowLeft | ArrowUp | ArrowRight | ArrowDown
     if (e.keyCode >= 37 && e.keyCode <= 40) {
       dir = DIRECTIONS[e.key]
     } else {
