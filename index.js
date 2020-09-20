@@ -26,7 +26,9 @@ function gameOver(pacman, grid) {
 
 function checkCollision(pacman, ghosts) {}
 
-function gameLoop(pacman, ghosts) {}
+function gameLoop(pacman, ghosts) {
+  console.log('works!');
+}
 
 function startGame() {
   gameWin = false;
@@ -43,7 +45,9 @@ function startGame() {
     // If you don't have the => method in objectExist, you will need to bind it like this below:
     // pacman.handlekeyInput(e, gameBoard.objectExist.bind(gameBoard));
     pacman.handlekeyInput(e, gameBoard.objectExist)
-  })
+  });
+
+  timer = setInterval(() => gameLoop(pacman), GLOBAL_SPEED);
 }
 
 // Initialize game
