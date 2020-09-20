@@ -35,6 +35,15 @@ function startGame() {
 
   startButton.classList.add('hide');
 
+  gameBoard.createGrid(LEVEL);
+
+  const pacman = new Pacman(2, 287);
+  gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
+  document.addEventListener('keydown', e => {
+    // If you don't have the => method in objectExist, you will need to bind it like this below:
+    // pacman.handlekeyInput(e, gameBoard.objectExist.bind(gameBoard));
+    pacman.handlekeyInput(e, gameBoard.objectExist)
+  })
 }
 
 // Initialize game

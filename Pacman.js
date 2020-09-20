@@ -41,6 +41,7 @@ class Pacman {
   }
 
   handlekeyInput(e, objectExist) {
+    console.log(e);
     let dir;
 
     // left, up, right, down
