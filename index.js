@@ -87,6 +87,9 @@ function gameLoop(pacman, ghosts) {
     gameWin = true;
     gameOver(pacman, ghosts);
   }
+
+  // Show the score
+  scoreTable.innerHTML = score;
 }
 function startGame() {
   gameWin = false;
