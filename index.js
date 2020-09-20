@@ -66,6 +66,16 @@ function gameLoop(pacman, ghosts) {
     gameBoard.dotCount--;
     score += 10;
   }
+
+  // Check if Pacman eats a powerpill
+  if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.PILL)) {
+    gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
+    pacman.powerPill = true;
+    score += 50;
+    clearTimeout(powerPillTimer);
+    powerPillTimer = setTimeout(() => (pacman.powerPill = false), POWER_PILL_TIME);
+  }
+
 }
 
 function startGame() {
