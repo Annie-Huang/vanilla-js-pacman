@@ -67,7 +67,7 @@ function gameLoop(pacman, ghosts) {
     score += 10;
   }
 
-  // Check if Pacman eats a powerpill
+  // Check if Pacman eats a Powerpill
   if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.PILL)) {
     gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
     pacman.powerPill = true;
@@ -76,8 +76,13 @@ function gameLoop(pacman, ghosts) {
     powerPillTimer = setTimeout(() => (pacman.powerPill = false), POWER_PILL_TIME);
   }
 
-}
+  // Change ghost scare mode depending on Powerfill
+  if (pacman.powerPill !== powerPillActive) {
+    powerPillActive = pacman.powerPill;
+    ghosts.forEach(ghost => ghost.isScared = pacman.powerPill);
+  }
 
+}
 function startGame() {
   gameWin = false;
   powerPillActive = false;
