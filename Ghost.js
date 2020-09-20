@@ -40,4 +40,9 @@ class Ghost {
 
     return {classesToRemove, classesToAdd};
   }
+
+  setNewPos(nextMovePos, direction) {
+    this.pos = nextMovePos;
+    this.dir = direction;
+  }
 }
